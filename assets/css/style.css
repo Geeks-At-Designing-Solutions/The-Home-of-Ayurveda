@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-  color: #65c9cd;
+  color: #6f8c6f;
   text-decoration: none;
 }
 
@@ -139,7 +139,9 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;
@@ -191,7 +193,7 @@ h6 {
 }
 
 .appointment-btn:hover {
-  background: #65c9cd;
+  background: #6f8c6f;
   color: #fff;
 }
 
@@ -210,6 +212,7 @@ h6 {
 */
 .navbar {
   padding: 0;
+  
 }
 
 .navbar ul {
@@ -233,7 +236,7 @@ h6 {
   font-family: "Inter", sans-serif;
   font-stretch: ultra-expanded;
   font-size: 12px;
-  color: #626262;
+  color: #2f372f;
   white-space: nowrap;
   transition: 0.3s;
   text-transform: uppercase;
@@ -524,7 +527,7 @@ h6 {
   line-height: 0;
   width: auto;
   height: auto;
-  background: rgba(63, 187, 192, 0.8);
+  background: #bfd3bf;
   border-radius: 50px;
   transition: 0.3s;
   color: rgba(255, 255, 255, 0.5);
@@ -573,7 +576,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #65c9cd;
+  background: #90ad90;
+  color: #dae6da;
 }
 
 @media (max-width: 992px) {
@@ -615,7 +619,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f7fcfc;
+  background-color: #edf4ed;
 }
 
 .section-title {
@@ -645,6 +649,10 @@ section {
 
 .section-title p {
   margin-bottom: 0;
+  color: #709184;
+  /* font-family: "Raleway", sans-serif;   */
+  font-style: italic;
+  
 }
 
 /*--------------------------------------------------------------
@@ -652,7 +660,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
-  background-color: #ecf8f9;
+  background-color: #e1ece1;
   min-height: 40px;
   margin-top: 120px;
 }
@@ -726,7 +734,7 @@ section {
 .featured-services .icon-box::before {
   content: "";
   position: absolute;
-  background: #d9f1f2;
+  background: #ceebce;
   right: 0;
   left: 0;
   bottom: 0;
@@ -736,7 +744,8 @@ section {
 }
 
 .featured-services .icon-box:hover::before {
-  background: #95b495;
+  background: rgb(148,179,147);
+background: linear-gradient(-180deg, rgba(148,179,147,1) 0%, rgba(112,145,132,1) 100%);
   top: 0;
   border-radius: 0px;
 }
@@ -766,6 +775,7 @@ section {
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
+  color: #9599a7;
 }
 
 .featured-services .icon-box:hover .title a,
@@ -781,7 +791,8 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: #95b495;
+  background: rgb(148,179,147);
+background: linear-gradient(-180deg, rgba(148,179,147,1) 0%, rgba(112,145,132,1) 100%);
   color: #fff;
   background-size: cover;
   padding: 60px 0;
@@ -822,6 +833,7 @@ section {
 .about .content ul {
   list-style: none;
   padding: 0;
+  color: #9599a7;
 }
 
 .about .content ul li {
@@ -846,10 +858,28 @@ section {
 }
 
 .counts .count-box {
+  background-color: #ffffff;
   box-shadow: -10px -5px 40px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
   border-radius: 8px;
+}
+
+.counts .count-box:hover {
+  box-shadow: -10px -5px 40px 0 rgb(149, 180, 149,0.4);
+  padding: 20px;
+  width: 100%;
+  border-width: 1px;
+  border-color: #d6e4d6;
+  transition: 700ms; 
+  border-style: dotted;
+  border-radius: 8px;
+  scale: 1.02;
+  
+  
+
+  
+
 }
 
 .counts .count-box i {
@@ -873,20 +903,21 @@ section {
   margin: 0;
   font-family: "Libre Franklin", sans-serif;
   font-size: 14px;
+  color: #9599a7;
 }
 
 .counts .count-box a {
   font-weight: 600;
   display: block;
   margin-top: 20px;
-  color: #7b7b7b;
+  color: #94b393;
   font-size: 15px;
   font-family: "Libre Franklin", sans-serif;
   transition: ease-in-out 0.3s;
 }
 
 .counts .count-box a:hover {
-  color: #95b495;
+  color: #698269;
 }
 
 /*--------------------------------------------------------------
@@ -946,19 +977,23 @@ section {
 }
 
 .services .icon-box:hover .icon {
-  box-shadow: 0px 0 25px rgba(63, 187, 192, 0.3);
+  box-shadow: 0px 0 25px rgba(135, 168, 135, 0.3);
+  scale: 1.2;
+  transition: 400ms;
+  
 }
 
 .services .title {
   font-weight: 600;
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 19px;
   position: relative;
   padding-bottom: 15px;
 }
 
 .services .title a {
-  color: #444444;
+  color: #709184;
+  font-weight: 500;
   transition: 0.3s;
 }
 
@@ -980,6 +1015,7 @@ section {
 .services .description {
   line-height: 24px;
   font-size: 14px;
+  color:#9599a7
 }
 
 /*--------------------------------------------------------------
@@ -1111,7 +1147,7 @@ section {
 }
 
 .departments .nav-link.active {
-  background: #f7fcfc;
+  background: #f0f5f0;
   border-color: #95b495;
 }
 
@@ -1199,7 +1235,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #b2e4e6;
+  color: #95b495;
   font-size: 26px;
 }
 
@@ -1220,7 +1256,7 @@ section {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: #f0fafa;
+  background: #ebf1eb;
   position: relative;
   border-radius: 6px;
   position: relative;
@@ -1458,7 +1494,7 @@ section {
 }
 
 .pricing .btn-buy:hover {
-  background: #65c9cd;
+  background: #6f8c6f;
 }
 
 .pricing .featured h3 {
@@ -1652,7 +1688,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #65c9cd;
+  background: #6f8c6f;
 }
 
 @keyframes animate-loading {
@@ -1715,7 +1751,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #65c9cd;
+  background: #6f8c6f;
   text-decoration: none;
 }
 
@@ -1795,7 +1831,7 @@ section {
 }
 
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
-  background: #65c9cd;
+  background: #6f8c6f;
 }
 
 #footer .copyright {
