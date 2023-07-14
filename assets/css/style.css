@@ -139,9 +139,9 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background: rgba(232, 232, 232, 0.9);
+  /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;
@@ -152,6 +152,7 @@ h6 {
 @media (max-width: 992px) {
   #header {
     padding: 15px 0;
+    
   }
 }
 
@@ -213,6 +214,8 @@ h6 {
 .navbar {
   padding: 0;
   
+ 
+  
 }
 
 .navbar ul {
@@ -221,6 +224,7 @@ h6 {
   display: flex;
   list-style: none;
   align-items: center;
+  
 }
 
 .navbar li {
@@ -241,6 +245,7 @@ h6 {
   transition: 0.3s;
   text-transform: uppercase;
   font-weight: 500;
+  
 }
 
 .navbar a i,
@@ -255,16 +260,18 @@ h6 {
 .navbar .active:focus,
 .navbar li:hover>a {
   color: #95b495;
+  
 }
 
 .navbar .dropdown ul {
+  
   display: block;
   position: absolute;
   left: 14px;
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
-  z-index: 99;
+  z-index: 997;
   opacity: 0;
   visibility: hidden;
   background: #fff;
@@ -274,6 +281,7 @@ h6 {
 }
 
 .navbar .dropdown ul li {
+  
   min-width: 200px;
 }
 
