@@ -11,6 +11,11 @@
   /**
    * Easy selector helper function
    */
+
+  $("#loadit").hide();
+  $("#submit-sucess").hide();
+
+
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {

@@ -632,7 +632,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit" on>Make an Appointment</button></div>
         </form>
 
       </div>
@@ -1089,6 +1089,7 @@
             <form action="" method="post" role="form" class="contact-form" name="contact-form" id="contact-form">
               <div class="row">
                 <div class="col-md-6 form-group">
+
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -1101,13 +1102,15 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="7" placeholder="Message" required=""></textarea>
               </div>
-              <div class="my-3">
-                <!-- <div class="loading">Loading</div>
-                <div class="error-message"></div> -->
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="my-3" style="display: flex; justify-content: center; align-items: center;"> 
+              
+               <div class="spinner-border" style="color: #95b495;" id="loadit" role="status"> </div>
+               <div id="submit-sucess" style="color: #95b495; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Submitted successfully</div>
+                <!-- <span class="sr-only"> -->
               </div>
               
-              <div class="text-center"><button type="submit" value="Submit" id="submit">Send Message</button></div>
+              <div class="text-center"><button class="contact-button" type="submit" value="Submit" id="submit" style="background-color: #95b495; border: none; padding: 8px 20px; border-radius: 40px; color: white;">Send Message</button></div>
+             <input style="visibility: hidden;" class="form-control" name="appendTime" id="appendTime" placeholder="appendTime" > 
             </form>
           </div>
 
@@ -1216,16 +1219,41 @@ Mannar, Kerala<br><br>
 
 $("#contact-form").submit((e) => {
     e.preventDefault();
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    $("#appendTime").val(today.toLocaleString());
+
+    
+    $("#loadit").show();
+
+  
+
+    
+
     $.ajax({
+      
         url: "https://script.google.com/macros/s/AKfycbyNMWCqylD3dgsWubI2AoU1Uv1GUnr64N3bz7uY55GzdMhr8tdQ8QdK1nyVQgwL0JU/exec",
         data: $("#contact-form").serialize(),
+        
         method: "POST",
         success: function (response) {
-            alert("Form submitted successfully");
+
+          
+
+            // alert("Form submitted successfully");
+            $("#loadit").hide();
+            $("#submit-sucess").show();
+            
             window.location.reload();
+            
+
+
             // window.location.href = "https://google.com";
         },
         error: function (err) {
+
+
+          $("#loadit").hide();
             alert("Something went wrong");
         },
     });
