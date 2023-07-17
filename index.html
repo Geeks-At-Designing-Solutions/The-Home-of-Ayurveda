@@ -344,7 +344,7 @@
 
               <h5 style="font-weight: 700;">Consultation with Doctor</h5>
               <p>15 minutes</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(1)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(1)">Book Now </a>
             </div>
           </div>
 
@@ -354,7 +354,7 @@
 
               <h5 style="font-weight: 700;">Ayurvedic Massage for Men</h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(2)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(2)">Book Now </a>
             </div>
           </div>
 
@@ -366,7 +366,7 @@
 
               <h5 style="font-weight: 700;">Shirodhara</h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(3)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(3)">Book Now </a>
             </div>
           </div>
 
@@ -376,7 +376,7 @@
 
               <h5 style="font-weight: 700;">Ayurvedic Kizhi</h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(4)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(4)">Book Now </a>
             </div>
           </div>
 
@@ -386,7 +386,7 @@
 
               <h5 style="font-weight: 700;">Ayurvedic Relaxation Massage</h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(5)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(5)">Book Now </a>
             </div>
           </div>
 
@@ -396,7 +396,7 @@
 
               <h5 style="font-weight: 700;">Web/Online Consultation with the Doctor</h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(6)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(6)">Book Now </a>
             </div>
           </div>
 
@@ -407,7 +407,7 @@
               <h5 style="font-weight: 700;">Ayurvedic Massage for Women
               </h5>
               <p>1 hour</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(7)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(7)">Book Now </a>
             </div>
           </div>
 
@@ -417,7 +417,7 @@
 
               <h5 style="font-weight: 700;">Home made Ayurvedic Medicines Pickup</h5>
               <p>15 minutes</p>
-              <a href="#appointment" class="text-center text-white book-now-button" onclick="changeSelectedItem(8)">Book Now </a>
+              <a href="#appointment" class="text-center text-white book-now-button scrollto" onclick="changeSelectedItem(8)">Book Now </a>
             </div>
           </div>
 
@@ -589,8 +589,8 @@
             consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
             in iste officiis commodi quidem hic quas.</p>
         </div>
-
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+       
+        <form action="" method="post" role="form" class="php-email-form" name="appointment-form" id="appointment-form" data-aos="fade-up"
           data-aos-delay="100">
           <div class="row">
             <div class="col-md-4 form-group">
@@ -614,7 +614,7 @@
               placeholder="Appointment Date" required>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
+              <select name="service-type" id="department" class="form-select" >
                 <option value="">Select Service</option>
                 <option value="Consultation with Doctor">Consultation with Doctor</option>
                 <option value="Ayurvedic Massage for Men">Ayurvedic Massage for Men</option>
@@ -631,12 +631,11 @@
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
           </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          <div class="my-3 text-center">
+            <div class="spinner-border" id="appointment-spinner" style="color: #95b495;"  role="status"> </div>
+            <div id="appointment-success-msg" style="color: #95b495; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Submitted successfully</div>
           </div>
-          <div class="text-center"><button type="submit" on>Make an Appointment</button></div>
+          <div class="text-center"><button type="submit" id="make-appointment-btn" on>Make an Appointment</button></div>
         </form>
 
       </div>
@@ -1221,20 +1220,41 @@ Mannar, Kerala<br><br>
 
   <script>
 
-$("#contact-form").submit((e) => {
+$("#appointment-form").submit((e) => {
     e.preventDefault();
     
-
-    
-    $("#loadit").show();
-
-  
-
-    
+    $("#appointment-spinner").show();
 
     $.ajax({
       
-        url: "https://script.google.com/macros/s/AKfycbyY6Qvlt-6APpXwylhVVW-82qB1j9UvNfH5RVxFPJ3JnrSC651VWLWt0gv1773ATPd_bA/exec",
+        url: "https://script.google.com/macros/s/AKfycbz2WxoGHW5T9hZDeLWyydp5irbwGOOqBeAdUqhKErPBSCoEpjd0dw6jUscre275esVQ/exec",
+        data: $("#appointment-form").serialize(),
+        
+        method: "POST",
+        success: function (response) {
+
+            $("#appointment-spinner").hide();
+            $("#appointment-success-msg").show();
+            
+            window.location.reload();
+            // window.location.href = "https://google.com";
+        },
+        error: function (err) {
+
+          $("#appointment-spinner").hide();
+            alert("Something went wrong");
+        },
+    });
+});
+
+$("#contact-form").submit((e) => {
+    e.preventDefault();
+    
+    $("#loadit").show();
+
+    $.ajax({
+      
+        url: "https://script.google.com/macros/s/AKfycbwI-QuT8Is8tIaFGXgd35mxps4_4vcwwcllE0IzQgVO-bRVrho-Vosvljyl4RzcT-a5XA/exec",
         data: $("#contact-form").serialize(),
         
         method: "POST",
@@ -1244,11 +1264,9 @@ $("#contact-form").submit((e) => {
             $("#submit-sucess").show();
             
             window.location.reload();
-
             // window.location.href = "https://google.com";
         },
         error: function (err) {
-
 
           $("#loadit").hide();
             alert("Something went wrong");
@@ -1256,15 +1274,14 @@ $("#contact-form").submit((e) => {
     });
 });
 
-
-  </script>
-
-<script>
-  function changeSelectedItem(val) {
-      document.getElementById(
-        "department").selectedIndex = val;
-  }
 </script>
+
+  <script>
+    function changeSelectedItem(val) {
+        document.getElementById(
+          "department").selectedIndex = val;      
+    }
+  </script>
 
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>

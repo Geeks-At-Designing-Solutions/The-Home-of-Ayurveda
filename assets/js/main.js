@@ -14,6 +14,8 @@
 
   $("#loadit").hide();
   $("#submit-sucess").hide();
+  $("#appointment-spinner").hide();
+  $("#appointment-success-msg").hide();
 
 
   const select = (el, all = false) => {
